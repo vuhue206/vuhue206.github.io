@@ -1,2 +1,2 @@
 # vuhue2062.github.io
-My personal website
+Learining GitHub is fun
