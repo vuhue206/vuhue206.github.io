@@ -1,0 +1,86 @@
+/* Reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Nền trang */
+body {
+    background: url('../images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Header */
+#header {
+    background: url('../images/header_bg.jpg') no-repeat center;
+    height: 120px;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Logo */
+#logo img {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Menu chính */
+#menu_top {
+    background: #b31217; /* Màu nền menu */
+    padding: 10px;
+    text-align: center;
+}
+
+#menu_top ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+#menu_top ul.level1 li {
+    position: relative;
+    margin: 0 15px;
+}
+
+#menu_top ul.level1 li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 12px;
+    display: inline-block;
+}
+
+#menu_top ul.level1 li a:hover {
+    background: #ffcc00;
+    color: black;
+}
+
+/* Menu con */
+#menu_top ul.level2 {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ddd;
+    min-width: 180px;
+    text-align: left;
+}
+
+#menu_top ul.level1 li:hover ul.level2 {
+    display: block;
+}
+
+#menu_top ul.level2 li {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+}
+
+/* Bullet hoa nhỏ */
+#menu_top ul.level2 li img {
+    margin-right: 8px;
+    vertical-align: middle;
+}
