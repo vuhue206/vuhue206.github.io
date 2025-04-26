@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register New Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        h2 {
+            background-color: #0078d7;
+            color: white;
+            padding: 10px;
+            margin: -20px -20px 20px -20px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .form-group label {
+            font-style: italic;
+            font-weight: 300;
+            margin-right: 10px;
+            width: 150px;
+            white-space: nowrap;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="password"],
+        .form-group select {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        .form-group input[type="radio"],
+        .form-group input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        .form-group textarea {
+            width: 100%;
+            height: 60px;
+            box-sizing: border-box;
+        }
+        .form-group .file-input {
+            margin-top: 5px;
+        }
+        .form-group .input-container {
+            flex: 1;
+        }
+        .buttons {
+            text-align: center;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>REGISTER NEW ACCOUNT</h2>
+        <form id="registerForm" name="frmRegister">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <div class="input-container">
+                    <input type="text" id="username" name="txtUsername">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-container">
+                    <input type="password" id="password" name="txtPassword">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm password</label>
+                <div class="input-container">
+                    <input type="password" id="confirm-password" name="txtPassword2">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="input-container">
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male" style="display: inline; font-style: normal;">Male</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female" style="display: inline; font-style: normal;">Female</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <div class="input-container">
+                    <input type="text" id="email" name="txtEmail">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Favourite</label>
+                <div class="input-container">
+                    <input type="checkbox" id="music" name="chkMusic" value="music">
+                    <label for="music" style="display: inline; font-style: normal;">Music</label>
+                    <input type="checkbox" id="reading" name="chkReading" value="reading">
+                    <label for="reading" style="display: inline; font-style: normal;">Reading</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="picture">Picture</label>
+                <div class="input-container">
+                    <input type="file" id="picture" name="filPicture" class="file-input">
+                    <span>No file chosen</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <div class="input-container">
+                    <textarea id="description" name="txtDescription"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="education">Education level</label>
+                <div class="input-container">
+                    <select id="education" name="education">
+                        <option value="aptech">Aptech</option>
+                        <option value="niit">NIIT</option>
+                        <option value="arena">Arena</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="language">Language</label>
+                <div class="input-container">
+                    <select id="language" name="language" >
+                        <option value="vietnamese">Vietnamese</option>
+                        <option value="english">English</option>
+                        <option value="french">French</option>
+                        <option value="japanese">Japanese</option>
+                    </select>
+                </div>
+            </div>
+            <div class="buttons">
+                <button type="button" onclick="register()">Register</button>
+                <button type="button" onclick="resetForm()">Reset</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function formValid() {
+            var phone_pattern = /^[0-9]{10,15}$/;
+            var email_pattern = /^[A-Za-z0-9]([-_.]?[A-Za-z0-9])*@[A-Za-z0-9]([-.]?[A-Za-z0-9])*\.[A-Za-z]{2,3}$/;
+            if(document.frmRegister.txtUsername.value==""){
+                alert("You must enter username");
+                document.frmRegister.txtUsername.focus();
+                return false;
+            }
+            if(document.frmRegister.txtPassword.value.length < 6){
+                alert("Password length must be from 6 to 20 characters");
+                document.frmRegister.txtPassword.focus();
+                return false;
+            }
+            if(document.frmRegister.txtPassword.value != document.frmRegister.txtPassword2.value){
+                alert("Password doesn't match");
+                document.frmRegister.txtPassword2.focus();
+                return false;
+            }
+            if(phone_pattern.test(document.frmRegister.txtPhone.value)==false){
+                alert("Invalid phone number");
+                document.frmRegister.txtPhone.focus();
+                return false;
+            }
+            if(email_pattern.test(document.frmRegister.txtEmail.value)==false){
+                alert("Invalid email address");
+                document.frmRegister.txtEmail.focus();
+                return false;
+            }
+            if(document.frmRegister.chkMusic.checked==false && document.frmRegister.chkReading.checked==false){
+                alert("You must select at least one favourite");
+                document.frmRegister.chkMusic.focus();
+                return false;
+            }
+            if(document.frmRegister.filPicture.value==""){
+                alert("You must select your picture");
+                document.frmRegister.filPicture.focus();
+                return false;
+            }
+            if(document.frmRegister.txtDescription.value==""){
+                alert("You must enter description");
+                document.frmRegister.txtDescription.focus();
+                return false;
+            }
+            alert("ALL register information are correct.");
+            return true;
+        }
+
+        function register() {
+            if (formValid()) {
+                alert("Registration successful!");
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('registerForm').reset();
+            document.querySelector('.file-input + span').textContent = "No file chosen";
+        }
+
+        document.getElementById('picture').addEventListener('change', function() {
+            const fileName = this.files.length > 0 ? this.files[0].name : "No file chosen";
+            this.nextElementSibling.textContent = fileName;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<head>
+<title>Exercise 5</title>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <style type ="text/css">
+/*B5: Sử dụng CSS định dạng. Tôi xin giải thích 1 chút
+Phần body : Định dạng màu nền
+Phần quan trọng nhất đo là Media. Cụ thể như sau:
+Ở @media >990px Chúng ta định dạng image ở max-width là 180px vì nếu lớn hơn nó sẽ tràn nội dung Screen MD
+Ở @media <990px Nếu những chế độ màn hình nhỏ hơn. Chúng ta sẽ chúng ta sẽ không hiển thị thẻ p trong class House và thẻ a trong class media-body
+*/
+    body{ background-color: #e8e8e8; }
+    .container-fluid { margin-top: 30px;}
+    .house {
+        background-color: #fff;
+        padding: 20px;
+        float: left;
+        margin-bottom: 20px;
+    }
+    .house.media-body .list-inline{
+        margin-top: 10px;
+    }
+    .house.media-body span{
+        margin-top: 10px;
+    }
+    @media screen and (min-width: 990px) {
+        .house img { 
+            max-width: 180px;
+        }
+    }
+    @media screen and (max-width: 990px) {
+        .container house p{
+            display: none;
+        }
+        .container house media-body a{
+            display: none;
+        }
+    }
+</style>
+</head>
+<body>
+    <!--B1 Tạo div với class container-fluid hoặc chỉ cần container cũng được. Các bạn nhớ chạy thử trước để
+    xem kết quả giao diện. Nhớ resize để xem sự thay đổi. Chúng ta có 2 phần, 1 phần heading và 1 phần content
+    nên tôi tạo hai thẻ row. Trong phần content chúng ta có 2 columns nên tôi  tạo 2 thẻ dĩ với class col-md-6
+    mỗi columns.-->
+    <div class="container-fluid">
+        <div class="container">
+        <!-- Navigation bar -->
+        <nav class="navbar navbar-default"> <!--.navbar-inverse-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">House Bussiness</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Messages</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="exercise1.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </nav> <!--END Nav-->
+<!-- ROW 1-Title-->
+    <div class="row heading">
+        <div class="title col-md-12">
+            <h1>Milion Dollar Home Listings</h1>
+            <p>Content</p>
+        </div>
+    </div>
+<!-- ROW 2 Content-->
+    <div class="row content">
+    <!-- Content COL 1-->
+        <div class="col-md-6">
+            <div class="house">
+            <!--B2: Các bạn có thể quan sát tôi sử dụng component MEDIA để chứa thông tin
+                    Bên phải là Image. Bên trái là content-->
+            <!-- B3:Để tạo MEDIA component chúng ta làm từng bước. Tạo div với class media-->
+        <div class="media">
+                <!-- Một div vouws class Pull-left chứa 1 image và 1 div với class media-body để chứa nội
+                 dung như bên dưới-->
+                <div class="pull-left">
+                <a href="#">
+                <img src="img/01.jpg" class="img-responsive media-object">
+                </a>
+            </div>
+        <!-- Div media-body-->
+        <div class="media-body">
+    <!-- In the media-body I use a heading as the system tag and the product detail description area is the p tag. The media-heading tag contains a hidden-xs class which means this content will be hidden when the screen is in Phone (Smallest) mode.-->
+    <h4 class="media-heading hidden-xs">Media heading</h4>
+    <a href="#">$1.975.000</a>
+        <span class="badge pull-right">609 W Gravers In</span>
+        <ul class="list-inline">
+            <li>4,820 SqFt</li><li>|</li>
+            <li>4,820 SqFt</li><li>|</li>
+            <li>5 Baths</li>
+        </ul>
+    <p>Conten of media heading</p>
+        </div>
+    </div>
+</div>
+<!--B4: Copy những nội dung còn lại. Như mô tả bên dưới -->
+    <div class="house">
+        <div class="media">
+            <div class="pull-left">
+            <a href="#">
+                <img src="img/02.jpg" class="img-responsive media-object">
+            </a>
+            </div>
+            <div class="media-body">
+            <h4 class="media-heading hidden-xs">Media heading</h4>
+            <a href="#">$1.975.000</a>
+                <span class="badge pull-right">609 W Gravers Ln</span>
+                <ul class="list-inline">
+                    <li>4,820 SqFt</li><li>|</li>
+                    <li>4,820 SqFt</li><li>|</li>
+                    <li>5 Baths</li>
+                </ul>
+            <p>Conten of media heading</p>
+            </div>
+        </div>
+    </div>
+        <div class="house">
+            <div class="media">
+                <div class="pull-left">
+                <a href="#">
+                    <img src="img/03.jpg" class="img-responsive media-object">
+                </a>
+                </div>
+                <div class="media-body">
+                <h4 class="media-heading hidden-xs">Media heading</h4>
+                <a href="#">$1.975.000</a>
+                    <span class="badge pull-right">609 W Gravers Ln</span>
+                    <ul class="list-inline">
+                        <li>4,820 SqFt</li><li>|</li>
+                        <li>4,820 SqFt</li><li>|</li>
+                        <li>5 Baths</li>
+                    </ul>
+                <p>Conten of media heading</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Content COL 2-->
+<!-- Chúng ta cũng copy 1 vài nội dung trên xuống col2 là xong-->
+    <div class="col-md-6">
+        <div class="house">
+            <div class="media">
+                <div class="pull-left">
+                <a href="#">
+                <img src="img/04.jpg" class="img-responsive media-object">
+                </a>
+                </div>
+            <div class="media-body">
+            <h4 class="media-heading hidden-xs">Media heading</h4>
+            <a href="#">$1.975.000</a>
+            <span class="badge pull-right">609 W Gravers Ln</span>
+            <ul class="list-inline">
+                <li>4,820 SqFt</li><li>|</li>
+                <li>4,820 SqFt</li><li>|</li>
+                <li>5 Baths</li>
+            </ul>
+        <p>Conten of media heading</p>
+            </div>
+        </div>
+    </div>
+        <div class="house">
+            <div class="media">
+                <div class="pull-left">
+                <a href="#">
+                <img src="img/05.jpg" class="img-responsive media-object">
+                </a>
+                </div>
+            <div class="media-body">
+            <h4 class="media-heading hidden-xs">Media heading</h4>
+            <a href="#">$1.975.000</a>
+            <span class="badge pull-right">609 W Gravers Ln</span>
+            <ul class="list-inline">
+                <li>4,820 SqFt</li><li>|</li>
+                <li>4,820 SqFt</li><li>|</li>
+                <li>5 Baths</li>
+            </ul>
+            <p>Conten of media heading</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</body>
